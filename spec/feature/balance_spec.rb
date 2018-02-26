@@ -14,4 +14,16 @@ describe "Balance class test" do
   it "Balance to decrease balance when called " do
     expect(@balance.update_balance(-100)).to eq -100
   end
+
+  it "Balance should store history" do
+    @balance.print_statement
+  end
+
+skip "Will come back to after timestamp has been added" do
+
+  it "Balance to store date and timestamp and return it" do
+    expect(@balance.print_statement).to eq(print_statement_helper)
+  end
+
+end
 end
