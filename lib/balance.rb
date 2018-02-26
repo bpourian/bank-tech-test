@@ -15,16 +15,16 @@ attr_reader :balance, :statement
 
   def credit_balance(credit_amount)
     @balance = credit_amount
-    get_date
+    update_statement(get_date, credit_amount, 0, get_balance)
   end
 
   def debit_balance(debit_amount)
     @balance = debit_amount
-    update_statement(date = :get_date, 0, debit_amount, balance = :balance )
+    update_statement(get_date, 0, debit_amount, get_balance )
   end
 
   def print_statement
-
+    @statement
   end
 
   private
@@ -37,7 +37,7 @@ attr_reader :balance, :statement
     @timestamp_class.get_date
   end
 
-  def update_statement(date, credit_amount,debit_amount, balance)
+  def update_statement(date, credit_amount, debit_amount, balance)
     if @statement == nil
       @statement = [
         {
@@ -58,5 +58,7 @@ attr_reader :balance, :statement
         )
     end
   end
+
+
 
 end

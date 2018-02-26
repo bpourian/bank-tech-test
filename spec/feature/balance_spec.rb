@@ -17,8 +17,13 @@ describe "Balance class test" do
     expect(@balance.get_balance).to eq -100
   end
 
-  it "Balance should store history" do
-    @balance.print_statement
+  it "Balance should credit balance store and print statement" do
+    @balance.credit_balance(100)
+    expect(@balance.print_statement).to eq ([{:date=>"26/02/2018", :credit=>100, :debit=>0, :balance=>100}])
+  end
+
+  it "Balance should debit balance store and print statement" do
+    expect(@balance.print_statement).to eq ([{:date=>"26/02/2018", :credit=>0, :debit=>-100, :balance=>-100}])
   end
 #
 # skip "Will come back to after timestamp has been added" do
