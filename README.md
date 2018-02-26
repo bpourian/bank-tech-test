@@ -1,9 +1,7 @@
 # Bank tech test
------
 This application can be accessed via a REPL.
 
 ## Specification
------
 ### Requirements
 * interact with your code via a REPL
 * Deposits, withdrawal
