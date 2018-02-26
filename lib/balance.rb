@@ -58,7 +58,4 @@ attr_reader :balance, :statement
         )
     end
   end
-
-
-
 end
