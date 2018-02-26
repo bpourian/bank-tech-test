@@ -9,7 +9,6 @@ attr_reader :get_balance
     get_balance = amount
   end
 
-
   private
   def get_balance=(amount)
     @get_balance = amount
