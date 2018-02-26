@@ -3,7 +3,6 @@ describe "Balance class test" do
     @balance = Balance.new
   end
 
-
   it "Balance to start with zero" do
     expect(@balance.get_balance).to eq 0
   end
