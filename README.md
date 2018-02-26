@@ -1,9 +1,14 @@
 # Bank tech test
-This application can be accessed via a REPL.
+This repo was created to represent a tech test. This application is mimicking a
+simple bank transaction of debit, credit and show balance. Each transaction is
+also timestamped uniquely.
 
-## Specification
+I approached this task by diagramming and thinking about the number of classes that
+I needed. Initially I wanted to separate out the action of debiting and crediting
+the account into their own individual classes.
+
 ### Requirements
-* interact with your code via a REPL
+* Interact with a REPL
 * Deposits, withdrawal
 * Account statement (date, amount, balance) printing
 * Data can be kept in memory (no db)
