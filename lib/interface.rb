@@ -1,5 +1,7 @@
 require_relative 'balance'
 
+@balance = Balance.new
+
 @columns = col_labels.each_with_object({}) { |(col,label),h|
   h[col] = { label: label,
              width: [arr.map { |g| g[col].size }.max, label.size].max } }

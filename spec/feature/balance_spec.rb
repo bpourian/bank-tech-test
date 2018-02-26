@@ -23,6 +23,7 @@ describe "Balance class test" do
   end
 
   it "Balance should debit balance store and print statement" do
+    @balance.debit_balance(-100)
     expect(@balance.print_statement).to eq ([{:date=>"26/02/2018", :credit=>0, :debit=>-100, :balance=>-100}])
   end
 #
