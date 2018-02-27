@@ -7,11 +7,12 @@ describe "Statement class test" do
   end
 
   it "Credit to increase balance" do
-    expect(@account.credit(100)).to eq 100
+    expect(balance).to receive(:credit_balance).with(100)
+    @account.credit(100)
   end
 
   it "Debit to decrease balance" do
-    expect(@account.debit(100)).to eq -100
+    expect(balance).to receive(:debit_balance).with(100)
+    @account.debit(100)
   end
-
 end

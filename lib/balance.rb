@@ -5,7 +5,7 @@ attr_reader :statement
 
   def initialize(date = Timestamp.new)
     @timestamp_class = date
-    @balance = 0
+    @balance = 0.00
     @statement = []
   end
 
