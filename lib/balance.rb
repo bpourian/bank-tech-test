@@ -1,7 +1,7 @@
 require_relative 'timestamp'
 
 class Balance
-attr_reader :balance, :statement
+attr_reader :statement
 
   def initialize(date = Timestamp.new)
     @timestamp_class = date
@@ -14,20 +14,18 @@ attr_reader :balance, :statement
   end
 
   def credit_balance(credit_amount)
-    @balance = credit_amount
-    update_statement(get_date, credit_amount, 0, get_balance)
+    @balance += credit_amount
+    update_statement(get_date, credit_amount, "--", get_balance)
   end
 
   def debit_balance(debit_amount)
-    @balance = debit_amount
-    update_statement(get_date, 0, debit_amount, get_balance )
-  end
-
-  def print_statement
-    @statement
+    @balance += debit_amount
+    update_statement(get_date, "--", debit_amount, get_balance )
   end
 
   private
+
+  attr_reader :balance
 
   def balance=(amount)
     @balance = amount
@@ -39,23 +37,9 @@ attr_reader :balance, :statement
 
   def update_statement(date, credit_amount, debit_amount, balance)
     if @statement == nil
-      @statement = [
-        {
-          date: date,
-          credit: credit_amount,
-          debit: debit_amount,
-          balance: balance
-          }
-        ]
+        @statement = [[date, credit_amount, debit_amount, balance]]
       else
-        @statement.push(
-          {
-            date: date,
-            credit: credit_amount,
-            debit: debit_amount,
-            balance: balance
-            }
-        )
+        @statement.push([date, credit_amount, debit_amount, balance])
     end
   end
 end

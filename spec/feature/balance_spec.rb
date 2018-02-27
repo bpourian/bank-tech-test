@@ -8,23 +8,23 @@ describe "Balance class test" do
     expect(@balance.get_balance).to eq 0
   end
 
-  it "Balance to increase balance when called" do
+  it "Credit Balance to increase balance when called" do
     @balance.credit_balance(100)
     expect(@balance.get_balance).to eq 100
   end
 
-  it "Balance to decrease balance when called " do
+  it "Debit Balance to decrease balance when called " do
     @balance.debit_balance(-100)
     expect(@balance.get_balance).to eq -100
   end
 
-  it "Balance should credit balance store and print statement" do
+  it "Credit Balance should credit balance store and return hash" do
     @balance.credit_balance(100)
-    expect(@balance.print_statement).to eq ([{:date=>"25/02/2018", :credit=>100, :debit=>0, :balance=>100}])
+    expect(@balance.statement).to eq ([["25/02/2018", 100, "--", 100]])
   end
 
-  it "Balance should debit balance store and print statement" do
+  it "Debit Balance should debit balance store and return hash" do
     @balance.debit_balance(-100)
-    expect(@balance.print_statement).to eq ([{:date=>"25/02/2018", :credit=>0, :debit=>-100, :balance=>-100}])
+    expect(@balance.statement).to eq ([["25/02/2018", "--", -100, -100]])
   end
 end
